@@ -17,7 +17,7 @@ export default function Home() {
         Your browser does not support the video tag.
       </video>
 
-      <Navbar />
+      
 
       {/* Hero Section */}
       <header className="flex flex-col items-center justify-center h-screen text-center relative z-10 ">
