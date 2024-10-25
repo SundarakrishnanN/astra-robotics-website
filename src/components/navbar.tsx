@@ -16,8 +16,8 @@ export default function Component() {
           <Link href="#" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
             Home
           </Link>
-          <Link href="/team" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
-            Team
+          <Link href="/teams" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
+            Our Team
           </Link>
           <Link href="/projects" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
             Projects
