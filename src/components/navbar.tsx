@@ -10,25 +10,25 @@ export default function Component() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
         <img src="/astralogo.png" alt="Logo" className="h-12 w-auto" />
-        <span className="text-lg font-bold text-primary">Astra Robotics</span>
+        <span className="text-lg font-bold text-primary text-white">Astra Robotics</span>
         </Link>
         <nav className="hidden gap-6 text-sm font-medium md:flex">
-          <Link href="#" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
+          <Link href="/" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
             Home
           </Link>
-          <Link href="/team" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
+          <Link href="/team" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
             Team
           </Link>
-          <Link href="/projects" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
+          <Link href="/projects" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
             Projects
           </Link>
-          <Link href="/genesis" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
+          <Link href="/genesis" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
             Genesis
           </Link>
           <Link href="/sponsorship" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
             Sponsorship
           </Link>
-          <Link href="/contact" className="text-primary-foreground hover:text-primary transition-colors" prefetch={false}>
+          <Link href="/contact" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
             Contact Us!
           </Link>
         </nav>
