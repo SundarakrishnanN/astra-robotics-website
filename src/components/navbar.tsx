@@ -16,7 +16,7 @@ export default function Component() {
           <Link href="/" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
             Home
           </Link>
-          <Link href="/team" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
+          <Link href="/teams" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
             Team
           </Link>
           <Link href="/projects" className="text-primary-foreground hover:text-blue-500 transition-colors" prefetch={false}>
@@ -240,3 +240,4 @@ function ServerIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
+
