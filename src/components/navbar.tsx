@@ -20,25 +20,25 @@ export default function Component() {
           </span>
         </Link>
         <nav className="hidden gap-6 text-sm font-medium md:flex">
-          <Link href="/" className="text-primary-foreground hover:text-[#420303] transition-[#343434]" prefetch={false}>
+          <Link href="/" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Home
           </Link>
-          <Link href="/team" className="text-primary-foreground hover:text-[#420303]  transition-colors" prefetch={false}>
+          <Link href="/team" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Team
           </Link>
-          <Link href="/projects" className="text-primary-foreground hover:text-[#420303] transition-colors" prefetch={false}>
+          <Link href="/projects" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Projects
           </Link>
-          <Link href="/achievements" className="text-primary-foreground hover:text-[#420303]  transition-colors" prefetch={false}>
+          <Link href="/achievements" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Achievements
           </Link>
-          <Link href="/genesis" className="text-primary-foreground hover:text-[#420303]  transition-colors" prefetch={false}>
+          <Link href="/genesis" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Genesis
           </Link>
-          <Link href="/sponsorship" className="text-primary-foreground hover:text-[#420303] transition-colors" prefetch={false}>
+          <Link href="/sponsorship" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Sponsorship
           </Link>
-          <Link href="/contact" className="text-primary-foreground hover:text-[#420303] transition-colors" prefetch={false}>
+          <Link href="/contact" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Contact Us!
           </Link>
         </nav>
@@ -250,3 +250,4 @@ function ServerIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
+
