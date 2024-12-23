@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/navbar';
+import { BackgroundLines } from '@/components/ui/background-lines';
 export default function Achievements() {
     const sections = [
       {
