@@ -8,13 +8,13 @@ export default function Achievements() {
       {
         title: "IIT Bombay E-Yantra’ 24 - 1st PLACE",
         text: "An international project based competition focused on solving real world problems involving dynamic controlnand kinematics of robots.",
-        imageUrl: "/kiwi.jpg",
+        imageUrl: "/eyantra.jpg",
         reverse: false,
       },
       {
         title: "Indian Rover Design Challenge’23 -2nd RUNNERUP",
         text: "Second Runners-Up out of 20 teams hailing from various countries.",
-        imageUrl: "/orange.jpg",
+        imageUrl: "/irdc.png",
         reverse: true,
       },
       {
