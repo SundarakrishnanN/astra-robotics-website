@@ -23,18 +23,14 @@ export default function Component() {
           <Link href="/" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Home
           </Link>
-          <Link href="/team" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
-            Team
-          </Link>
+  
           <Link href="/projects" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Projects
           </Link>
           <Link href="/achievements" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Achievements
           </Link>
-          <Link href="/genesis" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
-            Genesis
-          </Link>
+  
           <Link href="/sponsorship" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
             Sponsorship
           </Link>
