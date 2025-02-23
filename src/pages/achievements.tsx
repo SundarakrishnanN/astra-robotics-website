@@ -56,7 +56,7 @@ export default function Achievements() {
     {
       title: "University Rover Challenge'24 - Qualified PDRA",
       text: "The University Rover Challenge (URC) is an annual robotics competition held by the Mars Society, where student teams from around the world design and build rovers to compete in simulated Mars exploration tasks.",
-      imageUrl: "/urc.jpg",
+      imageUrl: "/URC.jpg",
       reverse: false,
     },
     {
