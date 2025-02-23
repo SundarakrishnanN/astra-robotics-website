@@ -6,7 +6,7 @@ import Navbar from '@/components/navbar';
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 relative">
-      {/* Background Video */}
+      {/* Background Video */ }
       <video
         className="absolute inset-0 w-full h-full object-cover filter brightness-50"
         autoPlay
@@ -39,19 +39,7 @@ export default function Home() {
       </header>
 
       {/* Additional Content Section */}
-      <section className="flex flex-col items-center justify-center py-16 text-white relative z-10 px-4">
-        <h2 className="text-3xl font-bold drop-shadow-lg">Discover More</h2>
-        <p className="mt-4 text-gray-200 text-center max-w-3xl">
-          Dive into our journey of innovation and creativity. Explore the projects we've been working on and see how we're shaping the future with robotics and automation.
-        </p>
-        <div className="mt-8">
-          <Link href="/team">
-            <Button className="px-6 py-3 text-lg bg-green-600 hover:bg-green-700 text-white rounded-lg shadow-md">
-              Meet Our Team
-            </Button>
-          </Link>
-        </div>
-      </section>
+      
     </div>
   );
 }
