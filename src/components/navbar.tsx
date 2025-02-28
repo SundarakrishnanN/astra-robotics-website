@@ -5,7 +5,16 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { JSX, SVGProps } from "react";
 
-export default function Component() {
+// Define navigation links using a map
+const navLinks = {
+  Home: "/",
+  Projects: "/projects",
+  Achievements: "/achievements",
+  Sponsorship: "/sponsorship",
+  "Contact Us!": "/contact",
+};
+
+export default function Navbar() {
   const router = useRouter();
   const isHomePage = router.pathname === "/";
   const [open, setOpen] = useState(false); // Track sidebar state
@@ -17,27 +26,25 @@ export default function Component() {
       }`}
     >
       <div className="flex h-16 w-full items-center justify-between px-4 md:px-6 shadow border-b-2 border-transparent">
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <img src="/astralogo.png" alt="Logo" className="h-12 w-auto" />
           <span className="text-lg font-bold text-white">Astra Robotics</span>
         </Link>
 
         {/* Desktop Navigation */}
-      <nav className="hidden gap-6 text-sm font-medium md:flex">
-        {["Home", "Projects", "Achievements", "Sponsorship", "Contact Us!"].map(
-          (item, index) => (
+        <nav className="hidden gap-6 text-sm font-medium md:flex">
+          {Object.entries(navLinks).map(([label, path]) => (
             <Link
-              key={index}
-              href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s/g, "")}`}
+              key={label}
+              href={path}
               className="text-primary-foreground hover:text-blue-500"
               prefetch={false}
             >
-              {item}
+              {label}
             </Link>
-          )
-        )}
-      </nav>
-
+          ))}
+        </nav>
 
         {/* Mobile Navigation */}
         <Sheet open={open} onOpenChange={setOpen}>
@@ -49,19 +56,17 @@ export default function Component() {
           </SheetTrigger>
           <SheetContent side="left" className="bg-white">
             <div className="grid gap-4 p-6 text-black">
-              {["Home", "Projects", "Achievements", "Sponsorship", "Contact Us!"].map(
-                (item, index) => (
-                  <Link
-                    key={index}
-                   href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s/g, "")}`}
-                    className="flex items-center gap-2 hover:text-blue-500 transition-colors"
-                    prefetch={false}
-                    onClick={() => setOpen(false)} // Close sidebar on click
-                  >
-                    {item}
-                  </Link>
-                )
-              )}
+              {Object.entries(navLinks).map(([label, path]) => (
+                <Link
+                  key={label}
+                  href={path}
+                  className="flex items-center gap-2 hover:text-blue-500 transition-colors"
+                  prefetch={false}
+                  onClick={() => setOpen(false)} // Close sidebar on click
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
           </SheetContent>
         </Sheet>
@@ -70,6 +75,7 @@ export default function Component() {
   );
 }
 
+// Menu Icon Component
 function MenuIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
