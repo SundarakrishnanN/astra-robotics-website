@@ -23,20 +23,21 @@ export default function Component() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden gap-6 text-sm font-medium md:flex">
-          {["Home", "Projects", "Achievements", "Sponsorship", "Contact Us!"].map(
-            (item, index) => (
-              <Link
-                key={index}
-                href={`/${item.toLowerCase().replace(/\s/g, "")}`}
-                className="text-primary-foreground hover:text-blue-500"
-                prefetch={false}
-              >
-                {item}
-              </Link>
-            )
-          )}
-        </nav>
+      <nav className="hidden gap-6 text-sm font-medium md:flex">
+        {["Home", "Projects", "Achievements", "Sponsorship", "Contact Us!"].map(
+          (item, index) => (
+            <Link
+              key={index}
+              href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s/g, "")}`}
+              className="text-primary-foreground hover:text-blue-500"
+              prefetch={false}
+            >
+              {item}
+            </Link>
+          )
+        )}
+      </nav>
+
 
         {/* Mobile Navigation */}
         <Sheet open={open} onOpenChange={setOpen}>
@@ -52,7 +53,7 @@ export default function Component() {
                 (item, index) => (
                   <Link
                     key={index}
-                    href={`/${item.toLowerCase().replace(/\s/g, "")}`}
+                   href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s/g, "")}`}
                     className="flex items-center gap-2 hover:text-blue-500 transition-colors"
                     prefetch={false}
                     onClick={() => setOpen(false)} // Close sidebar on click
