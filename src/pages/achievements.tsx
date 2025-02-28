@@ -1,30 +1,29 @@
 import React from 'react';
-
 import Image from 'next/image';
-
 import { BackgroundLines } from '@/components/ui/background-lines';
+
 interface AchievementCard {
   title: string;
   text: string;
   imageUrl: string;
-  reverse?: boolean; // Optional prop, defaults to false if not provided
+  reverse?: boolean;
 }
 
-const AchievementCard: React.FC<AchievementCard> =({ title, text, imageUrl, reverse }) => (
+const AchievementCard: React.FC<AchievementCard> = ({ title, text, imageUrl, reverse }) => (
   <div 
     className={`flex flex-col ${
       reverse ? 'md:flex-row-reverse' : 'md:flex-row'
-    } items-center gap-8 py-16 px-4 transition-all duration-300 hover:transform hover:scale-[1.02]`}
+    } items-center gap-6 md:gap-8 py-10 px-4 md:py-16 md:px-8 transition-all duration-300 hover:scale-[1.02]`}
   >
-    <div className="md:w-1/2 space-y-4">
-      <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+    <div className="w-full md:w-1/2 space-y-3 md:space-y-4">
+      <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
         {title}
       </h2>
-      <p className="text-lg text-gray-300 leading-relaxed">
+      <p className="text-base md:text-lg text-gray-300 leading-relaxed">
         {text}
       </p>
     </div>
-    <div className="md:w-1/2 relative group">
+    <div className="w-full md:w-1/2 relative group">
       <div className="relative overflow-hidden rounded-xl shadow-2xl">
         <Image
           src={imageUrl}
@@ -43,7 +42,7 @@ export default function Achievements() {
   const achievements = [
     {
       title: "IIT Bombay E-Yantra' 24 - 1st PLACE",
-      text: "An international project based competition focused on solving real world problems involving dynamic control and kinematics of robots.",
+      text: "An international project-based competition focused on solving real-world problems involving dynamic control and kinematics of robots.",
       imageUrl: "/eyantra.jpg",
       reverse: false,
     },
@@ -72,8 +71,8 @@ export default function Achievements() {
       <BackgroundLines className="fixed inset-0 z-0 opacity-20" />
       
       <div className="relative z-10">
-        <main className="container mx-auto px-4 pt-24 pb-16">
-          <h1 className="text-7xl font-bold text-center mb-8">
+        <main className="container mx-auto px-4 pt-20 md:pt-24 pb-10 md:pb-16">
+          <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Achievements
             </span>
@@ -81,10 +80,7 @@ export default function Achievements() {
           
           <div className="max-w-7xl mx-auto">
             {achievements.map((achievement, index) => (
-              <AchievementCard
-                key={index}
-                {...achievement}
-              />
+              <AchievementCard key={index} {...achievement} />
             ))}
           </div>
         </main>

@@ -6,7 +6,7 @@ const ContactPage = () => {
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
       <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
       <p className="text-lg mb-4 text-center">
-        Always open to connecting, collaborating, and exploring new opportunities!
+        We at Astra Robotics, are always open to connecting, collaborating, and exploring new opportunities! Feel free to contact us whatever be the reason!
       </p>
 
       <div className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center w-full max-w-md">
