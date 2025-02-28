@@ -25,7 +25,15 @@ const projects = [
   },
 ]
 
-const ProjectCard = ({ project, index }) => {
+interface Project {
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  span?: string;
+}
+
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -94,25 +102,38 @@ const ProjectsPage = () => {
       </div>
 
       <motion.div
-        className="mt-16 text-center"
+        className="max-w-4xl mx-auto px-6 py-16 text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-500">
-          Ready to Innovate?
-        </h2>
-        <p className="text-xl text-gray-300 mb-6">
-          Join us in shaping the future of robotics. Let's build something amazing together.
-        </p>
-        <motion.a
-          href="mailto:contact@yourdomain.com"
-          className="px-8 py-3 bg-gradient-to-r from-blue-500 to-green-500 rounded-full text-white text-lg font-semibold hover:from-blue-600 hover:to-green-600 transition-all duration-300"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Contact Us
-        </motion.a>
+        <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-8 rounded-3xl border border-gray-700">
+          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-500">
+            Ready to Innovate?
+          </h2>
+          <p className="text-xl text-gray-300 mb-6">
+            Join us in shaping the future of robotics. Let's build something amazing together.
+          </p>
+
+          <button
+            onClick={() => window.location.href = "mailto:teamastra@rvce.edu.in"}
+            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl 
+                       font-semibold hover:from-blue-600 hover:to-purple-600 
+                       transition-all duration-300 shadow-lg flex items-center justify-center gap-2 mx-auto"
+          >
+            Contact Us
+          </button>
+
+          <p className="text-gray-400 mt-4">
+            Or email us directly at: 
+            <a 
+              href="mailto:teamastra@rvce.edu.in" 
+              className="ml-2 text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              teamastra@rvce.edu.in
+            </a>
+          </p>
+        </div>
       </motion.div>
     </div>
   )
