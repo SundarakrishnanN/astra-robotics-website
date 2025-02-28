@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
@@ -7,6 +8,7 @@ import { JSX, SVGProps } from "react";
 export default function Component() {
   const router = useRouter();
   const isHomePage = router.pathname === "/";
+  const [open, setOpen] = useState(false); // Track sidebar state
 
   return (
     <header
@@ -22,25 +24,22 @@ export default function Component() {
 
         {/* Desktop Navigation */}
         <nav className="hidden gap-6 text-sm font-medium md:flex">
-          <Link href="/" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
-            Home
-          </Link>
-          <Link href="/projects" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
-            Projects
-          </Link>
-          <Link href="/achievements" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
-            Achievements
-          </Link>
-          <Link href="/sponsorship" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
-            Sponsorship
-          </Link>
-          <Link href="/contact" className="text-primary-foreground hover:text-blue-500" prefetch={false}>
-            Contact Us!
-          </Link>
+          {["Home", "Projects", "Achievements", "Sponsorship", "Contact Us!"].map(
+            (item, index) => (
+              <Link
+                key={index}
+                href={`/${item.toLowerCase().replace(/\s/g, "")}`}
+                className="text-primary-foreground hover:text-blue-500"
+                prefetch={false}
+              >
+                {item}
+              </Link>
+            )
+          )}
         </nav>
 
         {/* Mobile Navigation */}
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="md:hidden">
               <MenuIcon className="h-6 w-6 text-black" />
@@ -49,21 +48,19 @@ export default function Component() {
           </SheetTrigger>
           <SheetContent side="left" className="bg-white">
             <div className="grid gap-4 p-6 text-black">
-              <Link href="/" className="flex items-center gap-2 hover:text-blue-500 transition-colors" prefetch={false}>
-                Home
-              </Link>
-              <Link href="/projects" className="flex items-center gap-2 hover:text-blue-500 transition-colors" prefetch={false}>
-                Projects
-              </Link>
-              <Link href="/achievements" className="flex items-center gap-2 hover:text-blue-500 transition-colors" prefetch={false}>
-                Achievements
-              </Link>
-              <Link href="/sponsorship" className="flex items-center gap-2 hover:text-blue-500 transition-colors" prefetch={false}>
-                Sponsorship
-              </Link>
-              <Link href="/contact" className="flex items-center gap-2 hover:text-blue-500 transition-colors" prefetch={false}>
-                Contact Us!
-              </Link>
+              {["Home", "Projects", "Achievements", "Sponsorship", "Contact Us!"].map(
+                (item, index) => (
+                  <Link
+                    key={index}
+                    href={`/${item.toLowerCase().replace(/\s/g, "")}`}
+                    className="flex items-center gap-2 hover:text-blue-500 transition-colors"
+                    prefetch={false}
+                    onClick={() => setOpen(false)} // Close sidebar on click
+                  >
+                    {item}
+                  </Link>
+                )
+              )}
             </div>
           </SheetContent>
         </Sheet>
