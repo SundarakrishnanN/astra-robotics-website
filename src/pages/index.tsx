@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 relative">
       {/* Background Video */}
-      
+       
       <video
         className="absolute inset-0 w-full h-full object-cover filter brightness-50"
         autoPlay
