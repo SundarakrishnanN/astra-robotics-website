@@ -37,8 +37,8 @@ const teamSections = [
   { 
     title: "Machine Learning", 
     members: [
-      { name: "SUNDARKRISHNAN N", designation: "Lead", imageUrl: "/bro6.jpg" },
-      { name: "PRAMATH", designation: "Data Analysis Engineer", imageUrl: "/bro8.jpg" }
+      { name: "SUNDARAKRISHNAN N", designation: "Lead", imageUrl: "/bro6.jpg" },
+      { name: "PRAMATH KP", designation: "Data Analysis Engineer", imageUrl: "/bro8.jpg" }
     ]
   },
   { 
