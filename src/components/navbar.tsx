@@ -10,6 +10,7 @@ const navLinks = {
   Home: "/",
   Projects: "/projects",
   Achievements: "/achievements",
+  Team:"/team",
   Sponsorship: "/sponsorship",
   "Contact Us!": "/contact",
 };

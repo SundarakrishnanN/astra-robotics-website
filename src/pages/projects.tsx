@@ -1,7 +1,7 @@
-"use client"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+"use client";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const projects = [
   {
@@ -23,10 +23,10 @@ const projects = [
     title: "Doggo",
     description: "A 4-legged bot mimicking the movement of a dog.",
     longDescription: "Doggo is a quadrupedal robotic system that mimics canine movement. Built for agility and stability, it serves as a research platform for legged robotics, paving the way for advanced mobility solutions in rough terrains.",
-    image: "/doggo.png",
+    image: "/images.jpg",
     imageHeight: "h-72", // Standard height
   },
-]
+];
 
 interface Project {
   title: string;
@@ -34,6 +34,7 @@ interface Project {
   longDescription: string;
   image: string;
   imageHeight?: string;
+  objectFit?: string;
   span?: string;
 }
 
@@ -41,22 +42,22 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
-  })
+  });
 
   return (
     <motion.div
       ref={ref}
-      className="bg-white/10 backdrop-blur-lg p-6 rounded-3xl shadow-xl flex flex-col items-center transform transition-all hover:scale-105 hover:shadow-2xl"
+      className="bg-gray-900/80 backdrop-blur-xl p-6 rounded-3xl shadow-xl flex flex-col items-center transform transition-all hover:scale-105 hover:shadow-2xl border border-gray-700"
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.2 }}
     >
-      <div className={`relative w-full ${project.imageHeight || "h-64"} mb-6 overflow-hidden rounded-2xl`}>
+      <div className={`relative w-full ${project.imageHeight || "h-64"} mb-6 overflow-hidden rounded-2xl border-2 border-gray-700`}>
         <Image
           src={project.image || "/placeholder.svg"}
           alt={project.title}
           layout="fill"
-          objectFit="cover"
+          objectFit={project.objectFit || "cover"}
           objectPosition="center"
           className="transition-transform duration-300 hover:scale-110"
         />
@@ -64,22 +65,23 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       <h2 className="text-3xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
         {project.title}
       </h2>
-      <p className="text-lg text-gray-300 text-center px-4">{project.description}</p>
-      <p className="text-sm text-gray-400 text-center px-4 mt-2">{project.longDescription}</p>
-    {/*  <motion.button
-        className="mt-6 px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Learn More
-      </motion.button> */}
-    </motion.div> 
-  )
-}
+      <p className="text-lg text-gray-200 text-center px-4">{project.description}</p>
+      <p className="text-sm text-gray-300 text-center px-4 mt-2">{project.longDescription}</p>
+    </motion.div>
+  );
+};
 
 const ProjectsPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white flex flex-col items-center p-10 pt-24">
+    <div className="relative min-h-screen text-white flex flex-col items-center p-10 pt-24 overflow-auto">
+      {/* Video Background from second snippet */}
+      <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+        <source src="/robot-boomerang.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Dark overlay to reduce background intensity */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
+      
       <motion.h1
         className="text-6xl font-extrabold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
         initial={{ opacity: 0, y: -50 }}
@@ -89,7 +91,7 @@ const ProjectsPage = () => {
         Our Cutting-Edge Projects
       </motion.h1>
       <motion.p
-        className="text-xl text-gray-300 mb-12 text-center max-w-3xl"
+        className="text-xl text-gray-200 mb-12 text-center max-w-3xl"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -110,11 +112,11 @@ const ProjectsPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-8 rounded-3xl border border-gray-700">
+        <div className="bg-gray-900/80 backdrop-blur-xl p-8 rounded-3xl border border-gray-700">
           <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-500">
             Ready to Innovate?
           </h2>
-          <p className="text-xl text-gray-300 mb-6">
+          <p className="text-xl text-gray-200 mb-6">
             Join us in shaping the future of robotics. Let's build something amazing together.
           </p>
 
@@ -127,7 +129,7 @@ const ProjectsPage = () => {
             Contact Us
           </button>
 
-          <p className="text-gray-400 mt-4">
+          <p className="text-gray-300 mt-4">
             Or email us directly at: 
             <a 
               href="mailto:teamastra@rvce.edu.in" 
@@ -139,7 +141,7 @@ const ProjectsPage = () => {
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectsPage
+export default ProjectsPage;
